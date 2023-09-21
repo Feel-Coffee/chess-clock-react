@@ -148,6 +148,7 @@ body {
     }
     .player-1 {
       order: 1;
+      transform: rotateX(180deg);
     }
     .player-2 {
       order: 2;
