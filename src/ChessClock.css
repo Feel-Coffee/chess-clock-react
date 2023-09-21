@@ -135,7 +135,8 @@ body {
     body {
       background: url('https://w0.peakpx.com/wallpaper/333/462/HD-wallpaper-chess-game-red-soldiers.jpg') no-repeat center center fixed;
       background-size: cover;
-      position: flex;
+      display: absolute;
+      overflow: hidden;
     }
     .chess-clock {
       flex-direction: column;
@@ -144,7 +145,8 @@ body {
     }
     .player {
       width: 100%;
-      margin-bottom: 675px;
+      margin-bottom: 800px;
+      position: flex-center;
     }
     .player-1 {
       order: 1;
