@@ -61,7 +61,7 @@ const ChessClock = () => {
       setTimePlayer1(600);
       setTimePlayer2(600);
       setIsRestarted(true);
-      setIsTimeButtonDisabled(true); // Disable the Time button when Restart is pressed
+      setIsTimeButtonDisabled(true); 
     }
   };
 
@@ -87,44 +87,6 @@ const ChessClock = () => {
     <div className="chess-clock">
       <div className={`player player-${activePlayer}`} onClick={() => handleZoneClick(activePlayer)}>
         Player {activePlayer}
-        {showMenu && (
-          <div className="menu">
-            <div className="menu-item">
-              <label htmlFor="player1-input">Player 1 Time (minutes):</label>
-              <input
-                id="player1-input"
-                type="number"
-                min="1"
-                max="60"
-                value={player1Input}
-                onChange={(e) => setPlayer1Input(e.target.value)}
-              />
-            </div>
-            <div className="menu-item">
-              <label htmlFor="player2-input">Player 2 Time (minutes):</label>
-              <input
-                id="player2-input"
-                type="number"
-                min="1"
-                max="60"
-                value={player2Input}
-                onChange={(e) => setPlayer2Input(e.target.value)}
-              />
-            </div>
-            <button onClick={handleTimeSubmit}>Submit</button>
-            <div className="menu-item">
-              <label htmlFor="additional-seconds">Additional Seconds:</label>
-              <input
-                id="additional-seconds"
-                type="number"
-                min="0"
-                max="60"
-                value={additionalSeconds}
-                onChange={(e) => setAdditionalSeconds(parseInt(e.target.value))}
-              />
-            </div>
-          </div>
-        )}
         <div className="timer">{formatTime(activePlayer === 1 ? timePlayer1 : timePlayer2)}</div>
       </div>
       <div className={`player player-${activePlayer === 1 ? 2 : 1}`} onClick={() => handleZoneClick(activePlayer === 1 ? 2 : 1)}>
@@ -144,6 +106,44 @@ const ChessClock = () => {
         )}
         <button className="restart" onClick={handleRestart}>Restart</button>
       </div>
+      {showMenu && (
+        <div className="menu">
+          <div className="menu-item">
+            <label htmlFor="player1-input">Player 1 Time (minutes):</label>
+            <input
+              id="player1-input"
+              type="number"
+              min="1"
+              max="60"
+              value={player1Input}
+              onChange={(e) => setPlayer1Input(e.target.value)}
+            />
+          </div>
+          <div className="menu-item">
+            <label htmlFor="player2-input">Player 2 Time (minutes):</label>
+            <input
+              id="player2-input"
+              type="number"
+              min="1"
+              max="60"
+              value={player2Input}
+              onChange={(e) => setPlayer2Input(e.target.value)}
+            />
+          </div>
+          <button onClick={handleTimeSubmit}>Submit</button>
+          <div className="menu-item">
+            <label htmlFor="additional-seconds">Additional Seconds:</label>
+            <input
+              id="additional-seconds"
+              type="number"
+              min="0"
+              max="60"
+              value={additionalSeconds}
+              onChange={(e) => setAdditionalSeconds(parseInt(e.target.value))}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
